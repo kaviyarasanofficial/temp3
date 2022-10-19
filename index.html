@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Adding CSS Style Sheet To HTML Header Section  -->
+<link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+<body>
+<!-- This Section Adding Tab Link Working Function Div Section Its Display TAB Button Names-->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Client')" id="defaultOpen">Client</button>
+  <button class="tablinks" onclick="openCity(event, 'Vendor')">Vendor</button>
+  <button class="tablinks" onclick="openCity(event, 'Candidate')">Candidate</button>
+</div>
+<!-- This Section Declaring Client TAB Section  -->
+<div id="Client" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+      <!-- This Section Client Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Client Name </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'" maxlength="20"  required >
+    <label>Phone Number</label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID</label>
+    <input type="email" placeholder="yourmail@gmail.com (optional) " title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'"  >
+    <label>No Of Clients</label>
+    <input type="number" maxlength="2" pattern="[0-4]{1}" title=" Enter the number of people accompanying the client" placeholder="E.g: 2" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: 2'" ><br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+    </form>
+</div>
+</div>
+</div>
+<!-- This Section Declaring Vendor TAB Section  -->
+<div id="Vendor" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+<!-- This Section Vendor Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Vendor Name </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'" maxlength="20"  required >
+    <label>Phone Number</label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID</label>
+    <input type="email" placeholder="yourmail@gmail.com (optional)" title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'" >
+    <label>Visiting Card Details</label>
+    <input type="text" placeholder="Geetham Soft Pvt Lmt" title= "Enter vendor company details" onfocus="this.placeholder=''" onblur="this.placeholder='Geetham Soft Pvt Lmt'" > <br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+</form>
+</div>
+</div>
+</div>
+<!-- This Section Declaring Vendor TAB Section  -->
+<div id="Candidate" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+  <!-- This Section Interview Candidate Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Candidate Name </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'"  maxlength="20"  required >
+    <label>Phone Number</label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID</label>
+    <input type="email" placeholder="yourmail@gmail.com (optional) " title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'"  >
+    <label>ID Proof Number</label> 
+    <input type="text" placeholder="Aadhar/ Voter ID" title=" Enter Aadhar Number" onfocus="this.placeholder=''" onblur="this.placeholder='Aadhar/Voter ID'" required ><br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+</form>
+</div>
+</div>
+</div>
+<!-- This Java Script Section Control The TAB Menu Activity and active TAB Fuction Java Script-->
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<!-- This HTML Code In a Camera Controls Section It Including Button Control-->
+
+<div id="containerphoto">
+  <video autoplay="true" id="video"></video>
+  <button id="btn"> Take Snap & Save </button>
+  <canvas id="canvas" class="hidden"></canvas>
+  <img src="" alt="" id="img">
+  <a id="dl-btn" href="#" download="image.jpeg" class="hidden"></a>
+</div>
+
+<!-- This Java Script Section Control Camera Video Function and Download Image from snap the video Functions are Including -->
+<script>
+
+const video = document.querySelector('#video')
+const btn = document.querySelector('#btn')
+const canvas =  document.querySelector('#canvas')
+
+if(navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({video: true })
+    .then(stream => {
+        video.srcObject = stream
+    })
+    .catch(error => {
+        console.log('An error occured while accessing webcam.')
+    })
+}
+
+btn.addEventListener('click', () => {
+    // get intrinsic width and height of the video element
+    const width = video.videoWidth, height = video.videoHeight
+
+    const context = canvas.getContext('2d')
+
+    canvas.width = width
+    canvas.height = height
+
+    context.drawImage(video, 0, 0, width, height)
+
+    const imgURL = canvas.toDataURL('image/png')
+
+    document.querySelector('#dl-btn').href = imgURL
+
+    document.querySelector('#dl-btn').click()
+
+})
+</script>
+
+</body>
+</html> 

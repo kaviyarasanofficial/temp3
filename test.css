@@ -1,0 +1,106 @@
+
+body {
+     background: linear-gradient(35deg, red, purple);
+    font-family: 'Roboto', sans-serif;
+}
+.mytabs {
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 327px;
+    margin: 50px left;
+    padding: 25px;
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+.mytabs label {
+    border-radius:  8px 8px 0px 0px;
+    padding: 25px;
+    background: #43c6f5;
+    font-weight: bold;
+}
+
+.mytabs .tab {
+    border-radius:  1px 1px 10px 10px;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+}
+.mytabs .tab h2 {
+    font-size: 3em;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: #fff;
+}
+
+div.b {
+  position: absolute;
+  right: 600px;
+  top: 0px;
+  width: 100px;
+  height: 120px;
+}
+div.c {
+    position: absolute;
+    left: 450px;
+    top: 200px;
+    width: 100px;
+    height: 120px;
+  }
+  .button1 {
+    margin: 0;
+    position: absolute;
+    top: 350%;
+    left: 100px;
+    color: rgb(37, 12, 201);
+    padding: 1px 32px;
+    -ms-transform: translateY(-20%);
+    transform: translateY(-50%);
+  }
+  .button2 {
+    margin: 0;
+    position: absolute;
+    top: 350%;
+    left: 300px;
+    -ms-transform: translateY(-20%);
+    transform: translateY(-50%);
+  }
+
+  .container {
+	background-color:  rgb(197, 10, 63);
+	border-radius: 52px;
+	box-shadow: 0 2px 5px rgba(225, 232, 10, 0.3);
+	overflow: hidden;
+	width: 380px;
+	max-width: 100%;
+}
+
+.form {
+	padding: 30px 40px;	
+    
+}
+
+
+
+
+button {
+	background-color: #8e44ad;
+	border: 2px solid #0a010e;
+	border-radius: 4px;
+	color: rgb(255, 255, 255);
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 6px;
+	margin-top: 2px;
+	width: 100%;
+}
+
